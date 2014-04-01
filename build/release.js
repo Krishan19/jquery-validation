@@ -5,10 +5,13 @@ function today() {
 	return new Date().toISOString().replace(/T.+/, "");
 }
 
+console.log("_jsonFiles", Release._jsonFiles);
+Release._jsonFiles.push( "validation.jquery.json" );
+
 Release.define({
 	issueTracker: "github",
 	changelogShell: function() {
-		return Release.newVersion + " / " + today() + "\n==================\n";
+		return Release.newVersion + " / " + today() + "\n==================\n\n";
 	},
 
 	generateArtifacts: function( done ) {
